@@ -1,0 +1,45 @@
+body {
+  background-color: grey;
+}
+
+.container {
+  display: flex;
+}
+
+.container > div {
+  padding: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.delete {
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: red;
+  color: white;
+  text-align: center;
+  margin-left: auto;
+  width: 25%;
+}
+
+.delete:hover {
+  cursor: pointer;
+  filter: brightness(90%);
+}
+
+.add {
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 25%;
+}
+
+.add:hover {
+  cursor: pointer;
+  filter: brightness(90%);
+}
