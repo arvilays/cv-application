@@ -6,19 +6,30 @@ import ResumePreview from './components/ResumePreview.jsx';
 
 function App() {
   const [personal, setPersonal] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
+    name: "John Doe",
+    email: "johndoe@gmail.com",
+    phone: "123-456-7890",
+    location: "Doe Lane",
   });
 
   const [education, setEducation] = useState([
     {
       id: Date.now(),
-      school: "",
-      degree: "",
-      startDate: "",
-      endDate: "",
+      school: "University of Doe",
+      degree: "Computer Science",
+      location: "New York City, US",
+      date: "September 2021 - June 2025",
+    },
+  ]);
+
+  const [experience, setExperience] = useState([
+    {
+      id: Date.now(),
+      company: "Google",
+      title: "Software Engineer",
+      description: "Stack Overflow expert.",
+      location: "New York City, US",
+      date: "June 2025 - Present",
     },
   ]);
 
@@ -37,6 +48,16 @@ function App() {
     )
   }
 
+  function handleExperienceChange(id, e) {
+    const { name, value } = e.target;
+
+    setExperience(prevExperience =>
+      prevExperience.map(item =>
+        item.id === id ? { ...item, [name]: value } : item
+      )
+    )
+  }
+
   function handleAddEducation () {
     setEducation([
       ...education,
@@ -50,9 +71,29 @@ function App() {
     ]);
   }
 
+  function handleAddExperience() {
+    setExperience([
+      ...experience,
+      {
+        id: Date.now(),
+        company: "",
+        title: "",
+        description: "",
+        startDate: "",
+        endDate: "",
+      }
+    ]);
+  }
+
   function handleDeleteEducation(id) {
     setEducation(prevEducation => 
       prevEducation.filter(item => item.id !== id)
+    );
+  }
+
+  function handleDeleteExperience(id) {
+    setExperience(prevExperience =>
+      prevExperience.filter(item => item.id !== id)
     );
   }
 
@@ -69,12 +110,19 @@ function App() {
           addChange={handleAddEducation}
           deleteChange={handleDeleteEducation}
         />
+        <Experience
+          experience={experience}
+          onChange={handleExperienceChange}
+          addChange={handleAddExperience}
+          deleteChange={handleDeleteExperience}
+        />
       </div>
       
       <div className="resume">
         <ResumePreview 
           personal={personal}
           education={education}
+          experience={experience}
         />
       </div>
     </div>
@@ -82,113 +130,3 @@ function App() {
 }
 
 export default App;
-
-// const [education, setEducation] = useState([
-//   {
-//     school: "",
-//     degree: "",
-//     startDate: "",
-//     endDate: "",
-//   },
-// ]);
-
-// const [experience, setExperience] = useState([
-//   {
-//     company: "",
-//     title: "",
-//     description: "",
-//     startDate: "",
-//     endDate: "",
-//   },
-// ]);
-
-/* <form onSubmit={(e) => e.preventDefault()}>
-        <input
-          placeholder="name"
-          name="name"
-          value={personal.name}
-          onChange={handlePersonalChange}
-        />
-        <input
-          placeholder="email"
-          name="email"
-          value={personal.email}
-          onChange={handlePersonalChange}
-        />
-        <input
-          placeholder="phone"
-          name="phone"
-          value={personal.phone}
-          onChange={handlePersonalChange}
-        />
-      </form>
-
-      <form onSubmit={(e) => e.preventDefault()}>
-        <input
-          placeholder="school"
-          name="school"
-          value={education.school}
-          onChange={handleEducationChange}
-        />
-        <input
-          placeholder="degree"
-          name="degree"
-          value={education.degree}
-          onChange={handleEducationChange}
-        />
-        <input
-          placeholder="year"
-          name="year"
-          value={education.year}
-          onChange={handleEducationChange}
-        />
-      </form>
-
-      <form onSubmit={(e) => e.preventDefault()}>
-        <input
-          placeholder="company"
-          name="company"
-          value={experience.company}
-          onChange={handleExperienceChange}
-        />
-        <input
-          placeholder="title"
-          name="title"
-          value={experience.title}
-          onChange={handleExperienceChange}
-        />
-        <input
-          placeholder="startDate"
-          name="startDate"
-          value={experience.startDate}
-          onChange={handleExperienceChange}
-        />
-        <input
-          placeholder="endDate"
-          name="endDate"
-          value={experience.endDate}
-          onChange={handleExperienceChange}
-        />
-        <input
-          placeholder="description"
-          name="description"
-          value={experience.description}
-          onChange={handleExperienceChange}
-        />
-      </form>
-
-      <h1>
-        Name: {personal.name} Email: {personal.email} Phone:{" "}
-        {personal.phone}
-      </h1>
-
-      <h1>
-        School: {education.school} Degree: {education.degree} Year:{" "}
-        {education.year}
-      </h1>
-
-      <h1>
-        Company: {experience.company} Title: {experience.title} Start Date:{" "}
-        {experience.startDate} End Date: {experience.endDate} Description:{" "}
-        {experience.description}
-      </h1> */

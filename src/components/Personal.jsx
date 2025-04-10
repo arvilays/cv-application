@@ -1,6 +1,6 @@
 function Personal({ personal, onChange }) {
   return (
-    <>
+    <div className="personal">
       <h1>Personal</h1>
       <div className="form">
         <input
@@ -26,13 +26,13 @@ function Personal({ personal, onChange }) {
         />
         <input
           type="text"
-          name="address"
-          placeholder="Address"
-          value={personal.address}
+          name="location"
+          placeholder="Location"
+          value={personal.location}
           onChange={onChange}
         />
       </div>
-    </>
+    </div>
   );
 }
 

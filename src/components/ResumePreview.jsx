@@ -1,24 +1,47 @@
-function ResumePreview({ personal, education }) {
+function ResumePreview({ personal, education, experience }) {
   return (
     <>
-      <h1>Resume Preview</h1>
+      <div className="personal-preview">
+        <h1>{personal.name}</h1>
+        <div className="personal-details">
+          <h2>{personal.email}</h2>
+          <h2>{personal.phone}</h2>
+          <h2>{personal.location}</h2>
+        </div>
+      </div>
 
-      <h1>Personal Info</h1>
-      <h2>{personal.name}</h2>
-      <h2>{personal.email}</h2>
-      <h2>{personal.phone}</h2>
-      <h2>{personal.address}</h2>
-
-      <h1>Education</h1>
-      {education.map(item =>
-        <>
-          <h2>{item.id}</h2>
-          <h2>{item.school}</h2>
-          <h2>{item.degree}</h2>
-          <h2>{item.startDate}</h2>
-          <h2>{item.endDate}</h2>
-        </>
-      )}
+      <div className="education-preview">
+        <h1>Education</h1>
+        {education.map(item =>
+          <div className="resume-item">
+            <div>
+              <h2>{item.date}</h2>
+              <h2>{item.location}</h2>
+            </div>
+            <div>
+              <h2>{item.school}</h2>
+              <h2>{item.degree}</h2>
+            </div>
+          </div>
+        )}
+      </div>
+      
+      <div className="experience-preview">
+        <h1>Experience</h1>
+        {experience.map(item =>
+          <div className="resume-item">
+            <div>
+              <h2>{item.date}</h2>
+              <h2>{item.location}</h2>
+            </div>
+            <div>
+              <h2>{item.company}</h2>
+              <h2>{item.title}</h2>
+              <h2>{item.description}</h2>
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 }
