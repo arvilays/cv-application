@@ -19,7 +19,7 @@ function Experience({ experience, onChange, addChange, deleteChange }) {
               value={item.title}
               onChange={(e) => onChange(item.id, e)}
             />
-            <input
+            <textarea
               type="text"
               name="description"
               placeholder="Job Description"
