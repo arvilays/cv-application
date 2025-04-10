@@ -14,7 +14,7 @@ function App() {
 
   const [education, setEducation] = useState([
     {
-      id: Date.now(),
+      id: 1,
       school: "London City University",
       degree: "Bachelors in Economics",
       location: "New York City, US",
@@ -24,7 +24,7 @@ function App() {
 
   const [experience, setExperience] = useState([
     {
-      id: Date.now(),
+      id: 1,
       company: "Umbrella Inc.",
       title: "UX & UI Designer",
       description: "Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android",
@@ -32,7 +32,7 @@ function App() {
       date: "08/2020 – present",
     },
     {
-      id: Date.now(),
+      id: 2,
       company: "Black Mesa Labs",
       title: "UX Research Assistant",
       description: "Supported senior researchers on accessibility standards for the open web. Created and usability tested wireframes and prototypes. Produced interactive documentation for quick onboarding of new researchers.",
