@@ -6,38 +6,46 @@ import ResumePreview from './components/ResumePreview.jsx';
 
 function App() {
   const [personal, setPersonal] = useState({
-    name: "Josephine Meyers",
-    email: "josephine.meyers@mail.co.uk",
-    phone: "+44 3245-5521-5521",
-    location: "London, UK",
+    name: "Peter Parker",
+    email: "peter.parker@email.test",
+    phone: "(555) 013-1962",
+    location: "Queens, New York",
   });
 
   const [education, setEducation] = useState([
     {
       id: 1,
-      school: "London City University",
-      degree: "Bachelors in Economics",
+      school: "Empire State University",
+      degree: "Bachelor of Science in Biochemistry",
       location: "New York City, US",
-      date: "08/2020 – present",
+      date: "2019-2023",
     },
   ]);
 
   const [experience, setExperience] = useState([
     {
       id: 1,
-      company: "Umbrella Inc.",
-      title: "UX & UI Designer",
-      description: "Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android",
-      location: "New York City, US",
-      date: "08/2020 – present",
+      company: "The Daily Bugle",
+      title: "Freelance Photographer",
+      description: "Captured high-quality action and urban photography for print and digital publication.",
+      location: "New York, NY",
+      date: "2020 - Present",
     },
     {
       id: 2,
-      company: "Black Mesa Labs",
-      title: "UX Research Assistant",
-      description: "Supported senior researchers on accessibility standards for the open web. Created and usability tested wireframes and prototypes. Produced interactive documentation for quick onboarding of new researchers.",
-      location: "Berlin, Germany",
-      date: "04/2018 – 02/2019",
+      company: "Empire State University - Department of Science",
+      title: "Laboratory Assistant (Part-Time)",
+      description: "Assisted with undergraduate and faculty research projects.",
+      location: "New York, NY",
+      date: "2021-2023",
+    },
+    {
+      id: 3,
+      company: "Local Electronics Store",
+      title: "Retail Associate (Part-Time)",
+      description: "Provided technical assistance to customers on consumer electronics.",
+      location: "New York, NY",
+      date: "2019-2021",
     },
   ]);
 
